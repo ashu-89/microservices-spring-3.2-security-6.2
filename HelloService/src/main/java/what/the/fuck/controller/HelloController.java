@@ -1,4 +1,4 @@
-package controller;
+package what.the.fuck.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +12,6 @@ public class HelloController {
 
     @GetMapping
     public ResponseEntity<String> hello(){
-        return new ResponseEntity<>("hello", HttpStatus.OK);
+        return new ResponseEntity<>("hello wrlD", HttpStatus.OK);
     }
 }

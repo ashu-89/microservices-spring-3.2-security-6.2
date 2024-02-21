@@ -1,13 +1,13 @@
-package com.ashutosh.microservicesspring3.security62.helloservice;
+package what.the.fuck;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class HelloServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(HelloServiceApplication.class, args);
 	}
 
 }
