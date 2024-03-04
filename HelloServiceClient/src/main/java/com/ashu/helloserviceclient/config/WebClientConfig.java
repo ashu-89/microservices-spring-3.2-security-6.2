@@ -8,7 +8,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
     @Bean
-    //@LoadBalanced
+    @LoadBalanced
     //If we comment out @LoadBalanced, will get UnknownHostException. Explained below.
 
     //Spring beans have same name as the methodName instantiating them.
