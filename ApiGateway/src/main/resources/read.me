@@ -1,0 +1,33 @@
+Changes to secure the API gateway:
+
+#1. Introduce spring security in Discovery Server itself
+    simple username:password in URL security - BASIC AUTHENTICATION
+    give spring security username and password in properties file itsef
+
+    add spring-starter-sercurity dependency in pom
+
+    put a security config - to permit all requests matching path /eureka/** and authenticate the rest
+
+#2. In all microservices when they register themselves with eureka,
+    now need to pass in eureka default zone username:password/eureka kind of url
+
+#3. API Gateway
+    Make off API Gateway itself as resource server
+
+    add spring-security-starter and resoruce-server dependencies in pom
+
+    put a security config - permit all for paths matching /eureka/** and authenticate all the rest
+
+    put in properties file - resource server uri - KEYCLOAK issuer uri
+
+That's it folks.
+Then everything works like a charm.
+
+Only pending thing - needs more r&d - API GATEWAY - to use the default dependencies with spring3.2.2
+that spring initializer gives.
+
+Spring initializer gives us spring-cloud-gateway-MVC ... however, MVC doesn't work.
+So in dependency, we just use spring-cloud-gateway.
+
+If i can find out a way to use gateway-MVC, then i think all sorted to use latest dependencies
+coming in from spring initializer itself for 3.2.2 :)
