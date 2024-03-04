@@ -12,7 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/api/hello-client")
+@RequestMapping("/api/hello-service-client")
 public class HelloServiceClientController {
 
     @Autowired
@@ -21,11 +21,11 @@ public class HelloServiceClientController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping
+    @GetMapping("/hello-client")
     public ResponseEntity<String> helloClient() {
 
         UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder
-                .fromUriString("http://hello-service/api/home");
+                .fromUriString("http://hello-service/api/hello-service/hello");
 
         //no path variables, query params
         String uriString = uriComponentsBuilder.toUriString();
@@ -42,10 +42,10 @@ public class HelloServiceClientController {
 
     }
 
-//    @GetMapping
+//    @GetMapping("/hello-client")
 //    public ResponseEntity<String> helloClient() {
 //        // Now you can use restTemplate to make API calls
-//        String forObject = restTemplate.getForObject("http://hello-service/api/home", String.class);
+//        String forObject = restTemplate.getForObject("http://hello-service/api/hello-service/hello", String.class);
 //        return new ResponseEntity<>(forObject, HttpStatus.OK);
 //    }
 
