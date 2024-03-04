@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class RestTemplateConfig {
 
     @Bean
-    //@LoadBalanced
+    @LoadBalanced
     //If we comment out @LoadBalanced above, code doesn't work. detailed explanation below
     public RestTemplate restTemplate() {
         return new RestTemplate();
