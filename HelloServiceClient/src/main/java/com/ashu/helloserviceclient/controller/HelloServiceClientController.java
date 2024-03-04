@@ -18,29 +18,39 @@ public class HelloServiceClientController {
     @Autowired
     WebClient.Builder webClient;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
+//    @GetMapping
+//    public ResponseEntity<String> helloClient() {
+//
+//        //RestTemplate restTemplate = new RestTemplate();
+//        //String forObject = restTemplate.getForObject("http://localhost:8081/api/home", String.class);
+//        //String forObject = restTemplate.getForObject("http://hello-service/api/home", String.class);
+//
+//        UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder
+//                .fromUriString("http://hello-service/api/home");
+//
+//        //no path variables, query params
+//        String uriString = uriComponentsBuilder.toUriString();
+//
+//        String apiResponseString = webClient.build()
+//                .get()
+//                .uri(uriString)
+//                .retrieve()
+//                .bodyToMono(String.class)
+//                .block();
+//
+//
+//        return new ResponseEntity<>(apiResponseString, HttpStatus.OK);
+//
+//    }
+
     @GetMapping
     public ResponseEntity<String> helloClient() {
-
-        RestTemplate restTemplate = new RestTemplate();
-        //String forObject = restTemplate.getForObject("http://localhost:8081/api/home", String.class);
-        //String forObject = restTemplate.getForObject("http://hello-service/api/home", String.class);
-
-        UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder
-                .fromUriString("http://hello-service/api/home");
-
-        //no path variables, query params
-        String uriString = uriComponentsBuilder.toUriString();
-
-        String apiResponseString = webClient.build()
-                .get()
-                .uri(uriString)
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
-
-
-        return new ResponseEntity<>(apiResponseString, HttpStatus.OK);
-
+        // Now you can use restTemplate to make API calls
+        String forObject = restTemplate.getForObject("http://hello-service/api/home", String.class);
+        return new ResponseEntity<>(forObject, HttpStatus.OK);
     }
 
 
