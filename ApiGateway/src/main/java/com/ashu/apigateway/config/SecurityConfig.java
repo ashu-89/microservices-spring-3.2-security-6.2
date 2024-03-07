@@ -23,4 +23,6 @@ public class SecurityConfig {
                 .oauth2ResourceServer(spec -> spec.jwt(Customizer.withDefaults()));
         return serverHttpSecurity.build();
     }
+
+
 }
